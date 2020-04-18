@@ -5,7 +5,7 @@ Created on Wed Apr 15 22:41:08 2020
 @author: vinay
 """
 
-from Plot_AQI import avg_data_2013,avg_data_2014,avg_data_2015,avg_data_2016
+from Plot_AQI import avg_data_year
 import requests
 import sys
 import pandas as pd
@@ -43,7 +43,7 @@ def met_data(month, year):
     # in each rows there are some columns which are empty and hence they should be removed
     for a in range(len(finalD)):
         # removing empty fields and keeping only usefull data 
-        finalD[a] = finalD[a][1:4] + finalD[a][5:10]
+        finalD[a] = finalD[a][1:6] + finalD[a][7:10]
 
     return finalD
 
@@ -57,7 +57,8 @@ def data_combine(year, cs):
 
 if __name__ == "__main__":
     
-    col_names = ['T', 'TM', 'Tm', 'H', 'PP', 'VV', 'V', 'VM', 'PM2.5']
+    col_names = ['T', 'TM', 'Tm', 'SLP', 'H', 'VV', 'V', 'VM', 'PM 2.5']
+
     #creating Real-Data folder if it is not present
     if not os.path.exists("Data/Real-Data"):
         os.makedirs("Data/Real-Data")
@@ -74,7 +75,8 @@ if __name__ == "__main__":
             final_data = final_data + temp
           
         # this is our response variable
-        pm = getattr(sys.modules[__name__], 'avg_data_{}'.format(year))()
+        # pm = getattr(sys.modules[__name__], 'avg_data_{}'.format(year))()
+        pm = avg_data_year(year)
         
         print('year = {} , pm = {} , final_data= {}'.format(year,len(pm),len(final_data)))
         
