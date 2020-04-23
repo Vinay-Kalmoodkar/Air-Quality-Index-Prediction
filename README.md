@@ -11,4 +11,4 @@ Checked the correlation using pearson correlation co-effient and also visualized
 Used varies regression techniques to find which is the best model for this perticular dataset. RandomForestRegressor and XGBoostRegressors are the models that are performing well
 
 ### Model evaluation
-Evaluation metrics used are for checking the strength of model is **R2score** and loss functions used are **Mean Absolute Error (mae)**, **Mean Sqaured Error (mse)** and **Root Mean Sqaured Error (rmse)**
+Evaluation metrics used for checking the model's strength is **R2score** and loss functions used are **Mean Absolute Error (mae)**, **Mean Sqaured Error (mse)** and **Root Mean Sqaured Error (rmse)**
